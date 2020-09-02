@@ -1,0 +1,113 @@
+<h3>Create Student</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">
+          <div class="form-group">
+              <label for="name">User Name</label>
+              <input type="text" class="form-control"  formControlName="username" data-toggle="tooltip" 
+                 data-placement="right" title="Enter User Name" >
+              <div class="alert alert-danger" *ngIf = "(UserName.touched) && (UserName.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="UserName.errors.required">User Name is Required</span>
+                    <span *ngIf = "UserName.errors.minlength"> 
+                        MinLength Error 
+                    </span>                   
+                </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Password</label>
+            <input type="password" class="form-control"  formControlName="password" data-toggle="tooltip" 
+               data-placement="right" title="Enter Password" >
+            <div class="alert alert-danger" *ngIf = "(UserPassword.touched) && (UserPassword.invalid)" 
+              style="margin-top: 5px;">
+                <span *ngIf="UserPassword.errors.required">Password is Required</span>
+                  <span *ngIf = "UserPassword.errors.minlength"> 
+                      MinLength Error 
+                  </span>                   
+              </div>
+        </div>
+
+          <div class="form-group">
+            <label for="name">First Name</label>
+            <input type="text" class="form-control"  formControlName="firstname" data-toggle="tooltip" 
+               data-placement="right" title="Enter First Name" >
+            <div class="alert alert-danger" *ngIf = "(UserFirstName.touched) && (UserFirstName.invalid)" 
+              style="margin-top: 5px;">
+                <span *ngIf="UserFirstName.errors.required">First Name is Required</span>
+                  <span *ngIf = "UserFirstName.errors.minlength"> 
+                      MinLength Error 
+                  </span>                   
+              </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">last Name</label>
+          <input type="text" class="form-control"  formControlName="lastname" data-toggle="tooltip" 
+             data-placement="right" title="Enter last Name" >
+          <div class="alert alert-danger" *ngIf = "(UserLastName.touched) && (UserLastName.invalid)" 
+            style="margin-top: 5px;">
+              <span *ngIf="UserLastName.errors.required">last Name is Required</span>
+                <span *ngIf = "UserLastName.errors.minlength"> 
+                    MinLength Error 
+                </span>                   
+            </div>
+      </div>
+  
+          <div class="form-group">
+              <label for="name">Student Email</label>
+              <input type="text" class="form-control" formControlName="email" 
+                data-toggle="tooltip" data-placement="right" title="Enter Student Email">
+                <div class="alert alert-danger" *ngIf = "(UserEmail.touched) && (UserEmail.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="UserEmail.errors.required">Student Email is Required</span>
+                    <span *ngIf = "UserEmail.errors.email"> 
+                        Invalid Email Format 
+                    </span>                   
+                </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="name">Mobile</label>
+            <input type="text" class="form-control" formControlName="mobile" 
+              data-toggle="tooltip" data-placement="right" title="Mobile Number">
+              <div class="alert alert-danger" *ngIf = "(UserMobile.touched) && (UserMobile.invalid)" 
+              style="margin-top: 5px;">
+                <span *ngIf="UserMobile.errors.required">Student Mobile is Required</span>
+                  <span *ngIf = "UserMobile.errors.email"> 
+                      Invalid Email Format 
+                  </span>                   
+              </div>
+        </div>
+  
+          <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4>Student Added SuccessFully!</h4>
+         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!errorFlag">
+         <h4>Username/Email already exists!</h4>
+         <button (click)="addStudentForm()" class='btn btn-primary'>Refill form.</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+

@@ -1,0 +1,34 @@
+    <div  class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a  routerLink="add-student" class="nav-link" class="btn btn-primary active" role="button" [hidden]="adminL" [hidden]="userL">Add Student</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="excelMicroservice" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Excel Microservice</a>
+          </li> 
+
+          <li class="nav-item">
+            <a routerLink="sectorMicroservice" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Sector Microservice</a>
+          </li> 
+
+          <li class="nav-item">
+            <a  class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL">Admin Rights</a>
+          </li> 
+
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-primary active" role="button" (click)="UserLogin()" [hidden]="adminL" [hidden]="userL">User Login</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-primary active" role="button" (click)="AdminLogin()" [hidden]="adminL" [hidden]="userL">Admin Login</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-primary active" role="button" (click)="logout()" [hidden]="!adminL" [hidden]="!userL">Logout</a>
+          </li>
+        </ul>
+      </nav> 
+
+
+        <router-outlet></router-outlet>
+    </div>
+    
