@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-import { AddStudentComponent } from './add-student/add-student.component';
+import { AddStudentComponent } from './Components/add-student/add-student.component';
 
 @NgModule({
   declarations: [
