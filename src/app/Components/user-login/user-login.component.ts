@@ -39,7 +39,7 @@ export class UserLoginComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.submitted = true;
-        console.log("bearer "+data.jwt);
+        //console.log("bearer "+data.jwt);
         this.router.navigate(['/success']);
       }, error => {
       console.log(error)
