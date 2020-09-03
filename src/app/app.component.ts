@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import {StudentService} from './student.service'
 import * as myGlobals from './global';
 import { logging } from 'protractor';
+import { Router , Routes} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +10,21 @@ import { logging } from 'protractor';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private router: Router) { }
   title = 'FormSubmit';
-  adminL = myGlobals.getAdminStatus();
-  userL = myGlobals.getUserStatus();
-  AdminLogin(){
-    myGlobals.adminLogin();
-    console.log("Admin" + myGlobals.getAdminStatus());
-    this.adminL = myGlobals.getAdminStatus();
-  }
-
-  UserLogin(){
-    myGlobals.userLogin();
-    console.log("User" + myGlobals.getUserStatus());
-    this.adminL = myGlobals.getUserStatus();
+  isLogged = myGlobals.getStatus();
+  login(){
+    console.log("Login boolean : " + this.isLogged);
+    myGlobals.loggingin();
+    this.isLogged = true;
+    console.log("Login boolean : " + this.isLogged);
   }
 
   logout(){
     myGlobals.logout();
-    this.adminL = myGlobals.getAdminStatus();
-    this.userL = myGlobals.getUserStatus();
-    console.log("User" + myGlobals.getUserStatus());
-    console.log("Admin" + myGlobals.getAdminStatus());
+    this.isLogged = false;
+    console.log("Login boolean : " + this.isLogged);
+    this.router.navigate(['/']);
   }
 
 }

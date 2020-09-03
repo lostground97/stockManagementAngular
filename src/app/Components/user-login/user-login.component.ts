@@ -3,6 +3,7 @@ import { StudentService } from 'src/app/student.service';
 import { loginUser } from 'src/app/loginUser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router , Routes} from '@angular/router';
+import * as myGlobals from '../../global';
 
 @Component({
   selector: 'app-user-login',
@@ -16,6 +17,7 @@ export class UserLoginComponent implements OnInit {
   loginId : loginUser=new loginUser();
   submitted = false;
   errorFlag = false;
+  invalid = false;
 
   ngOnInit() {
     this.submitted=false;
@@ -40,10 +42,13 @@ export class UserLoginComponent implements OnInit {
         console.log(data)
         this.submitted = true;
         //console.log("bearer "+data.jwt);
+        myGlobals.loggingin();
         this.router.navigate(['/success']);
       }, error => {
       console.log(error)
         this.errorFlag = true;
+        this.invalid = true;
+        this.userLoginForm.reset();
     }
       
       );

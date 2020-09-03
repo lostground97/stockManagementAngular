@@ -5,16 +5,17 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
+
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
-import { SuccessComponent } from './Components/success/success.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     UserLoginComponent,
-    SuccessComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
