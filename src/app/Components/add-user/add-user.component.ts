@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../student.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
-import { Student } from '../../student';
+import { User } from '../../user';
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class AddStudentComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   constructor(private studentservice:StudentService) { }
 
-  student : Student=new Student();
+  student : User=new User();
   submitted = false;
   errorFlag = false;
 
@@ -22,18 +22,18 @@ export class AddStudentComponent implements OnInit {
 
   studentsaveform=new FormGroup({
     username:new FormControl('' , [Validators.required  ] ),
-    firstname:new FormControl('' , [Validators.required ] ),
-    lastname:new FormControl('' , [Validators.required  ] ),
+    firstName:new FormControl('' , [Validators.required ] ),
+    lastName:new FormControl('' , [Validators.required  ] ),
     password:new FormControl('' , [Validators.required ] ),
     email:new FormControl('',[Validators.required,Validators.email]),
     mobile:new FormControl('' , [Validators.required  ] ),
   });
 
-  saveStudent(saveStudent){
-    this.student=new Student();   
+  saveUser(saveUser){
+    this.student=new User();   
     this.student.username=this.UserName.value;
-    this.student.first_name=this.UserFirstName.value;
-    this.student.last_name=this.UserLastName.value;
+    this.student.firstName=this.UserFirstName.value;
+    this.student.lastName=this.UserLastName.value;
     this.student.password=this.UserPassword.value;
     this.student.email=this.UserEmail.value;
     this.student.mobile=this.UserMobile.value;
@@ -53,7 +53,7 @@ export class AddStudentComponent implements OnInit {
     }
       
       );
-    this.student = new Student();
+    this.student = new User();
   }
 
   get UserName(){
@@ -65,11 +65,11 @@ export class AddStudentComponent implements OnInit {
   }
 
   get UserFirstName(){
-    return this.studentsaveform.get('firstname');
+    return this.studentsaveform.get('firstName');
   }
 
   get UserLastName(){
-    return this.studentsaveform.get('lastname');
+    return this.studentsaveform.get('lastName');
   }
 
   get UserEmail(){

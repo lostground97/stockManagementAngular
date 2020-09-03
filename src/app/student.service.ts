@@ -16,6 +16,10 @@ export class StudentService {
     return this.http.post(`${this.baseUrl}`+'signin', student);
   }
 
+  loginUser(loginId: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`+'login', loginId);
+  }
+
   login(): boolean{
     return true;
   }

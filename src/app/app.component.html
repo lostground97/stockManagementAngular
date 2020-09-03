@@ -2,42 +2,41 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a  routerLink="add-student" class="nav-link" class="btn btn-primary active" role="button" [hidden]="adminL" [hidden]="userL">Add Student</a>
+            <a  routerLink="add-user" class="nav-link" class="btn btn-primary active" role="button" [hidden]="adminL" [hidden]="userL">Add Student</a>
+          </li>&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a routerLink="importExcel" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Import Excel&nbsp;&nbsp;&nbsp;</a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="manageCompanies" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage Companies&nbsp;&nbsp;&nbsp;</a>
           </li>
           <li class="nav-item">
-            <a routerLink="importExcel" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Import Excel</a>
-          </li> 
+            <a routerLink="manageIPO" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage IPO&nbsp;&nbsp;&nbsp;</a>
+          </li>
 
           <li class="nav-item">
-            <a routerLink="manageCompanies" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage Companies</a>
-          </li> 
+            <a routerLink="manageStockExchanges" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage Stock Exchange&nbsp;&nbsp;&nbsp;</a>
+          </li>
 
           <li class="nav-item">
-            <a routerLink="manageIPO" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage IPO</a>
-          </li> 
-
-          <li class="nav-item">
-            <a routerLink="manageStockExchanges" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Manage Stock Exchange</a>
-          </li> 
-
-          <li class="nav-item">
-            <a routerLink="createcompany" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Create Company</a>
-          </li> 
+            <a routerLink="createcompany" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Create Company&nbsp;&nbsp;&nbsp;</a>
+          </li>
           
           <li class="nav-item">
-            <a routerLink="comparisoncharts" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Comparison Charts</a>
-          </li> 
+            <a routerLink="comparisoncharts" class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL" [hidden]="!userL">Comparison Charts&nbsp;&nbsp;&nbsp;</a>
+          </li>
 
           <li class="nav-item">
-            <a  class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL">Admin Rights</a>
-          </li> 
+            <a  class="nav-link" class="btn btn-primary active" role="button" [hidden]="!adminL">Admin Rights&nbsp;&nbsp;&nbsp;</a>
+          </li>
 
           <li class="nav-item">
-            <a class="nav-link" class="btn btn-primary active" role="button" (click)="UserLogin()" [hidden]="adminL" [hidden]="userL">User Login</a>
-          </li> 
+            <a routerLink="user-login" class="nav-link" class="btn btn-primary active" role="button" [hidden]="adminL" [hidden]="userL">User Login&nbsp;&nbsp;&nbsp;</a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" class="btn btn-primary active" role="button" (click)="AdminLogin()" [hidden]="adminL" [hidden]="userL">Admin Login</a>
-          </li> 
+            <a class="nav-link" class="btn btn-primary active" role="button" (click)="AdminLogin()" [hidden]="adminL" [hidden]="userL">Admin Login&nbsp;&nbsp;&nbsp;</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" class="btn btn-primary active" role="button" (click)="logout()" [hidden]="!adminL" [hidden]="!userL">Logout</a>
           </li>

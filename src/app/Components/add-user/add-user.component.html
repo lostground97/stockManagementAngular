@@ -1,9 +1,9 @@
-<h3>Create Student</h3>
+<h3>Add User</h3>
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4" >
     <div [hidden]="submitted" style="width: 400px;">
-      <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">
+      <form [formGroup]="studentsaveform" #saveuser (ngSubmit)="saveUser(saveUser)">
           <div class="form-group">
               <label for="name">User Name</label>
               <input type="text" class="form-control"  formControlName="username" data-toggle="tooltip" 
@@ -32,7 +32,7 @@
 
           <div class="form-group">
             <label for="name">First Name</label>
-            <input type="text" class="form-control"  formControlName="firstname" data-toggle="tooltip" 
+            <input type="text" class="form-control"  formControlName="firstName" data-toggle="tooltip" 
                data-placement="right" title="Enter First Name" >
             <div class="alert alert-danger" *ngIf = "(UserFirstName.touched) && (UserFirstName.invalid)" 
               style="margin-top: 5px;">
@@ -45,7 +45,7 @@
 
         <div class="form-group">
           <label for="name">last Name</label>
-          <input type="text" class="form-control"  formControlName="lastname" data-toggle="tooltip" 
+          <input type="text" class="form-control"  formControlName="lastName" data-toggle="tooltip" 
              data-placement="right" title="Enter last Name" >
           <div class="alert alert-danger" *ngIf = "(UserLastName.touched) && (UserLastName.invalid)" 
             style="margin-top: 5px;">

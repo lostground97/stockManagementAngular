@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-import { AddStudentComponent } from './Components/add-student/add-student.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
+import { UserLoginComponent } from './Components/user-login/user-login.component';
+import { SuccessComponent } from './Components/success/success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddStudentComponent,
+    AddUserComponent,
+    UserLoginComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,

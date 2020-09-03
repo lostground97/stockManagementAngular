@@ -7,6 +7,7 @@ export var isUser = false;
 
 export function adminLogin(){
     isAdmin = true;
+    isUser = false;
 }
 
 export function logout(){
@@ -16,6 +17,7 @@ export function logout(){
 
 export function userLogin(){
     isUser = true;
+    isAdmin = false;
 }
 
 export function getAdminStatus(): boolean{
