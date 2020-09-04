@@ -8,7 +8,7 @@ import {DataTablesModule} from 'angular-datatables';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { ChartsModule } from 'ng2-charts';
 
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
@@ -16,6 +16,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { from } from 'rxjs';
+import { CompareCompanyComponent } from './compare-company/compare-company.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { from } from 'rxjs';
     AddUserComponent,
     UserLoginComponent,
     DashboardComponent,
+    CompareCompanyComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { from } from 'rxjs';
     NoopAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ChartsModule
   ],
   exports: [
     MatButtonModule,
