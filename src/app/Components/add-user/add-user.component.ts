@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../student.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 import { User } from '../../user';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -9,7 +11,7 @@ import { User } from '../../user';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private studentservice:StudentService) { }
+  constructor(private studentservice:StudentService, private router: Router) { }
 
   student : User=new User();
   submitted = false;
@@ -47,6 +49,7 @@ export class AddUserComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.submitted = true;
+        this.router.navigate(['/']);
       }, error => {
       console.log(error)
         this.errorFlag = true;

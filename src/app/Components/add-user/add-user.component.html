@@ -1,13 +1,19 @@
-<h3>Add User</h3>
+<br/>
+<mat-card>
+<h3 id="add-user-header">Add User</h3>
+</mat-card>
+<br/>
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4" >
     <div [hidden]="submitted" style="width: 400px;">
       <form [formGroup]="studentsaveform" #saveuser (ngSubmit)="saveUser(saveUser)">
+        <mat-card>
           <div class="form-group">
               <label for="name">User Name</label>
               <input type="text" class="form-control"  formControlName="username" data-toggle="tooltip" 
                  data-placement="right" title="Enter User Name" >
+                <div id="username-error" [hidden]="!errorFlag">Username already exists</div>
               <div class="alert alert-danger" *ngIf = "(UserName.touched) && (UserName.invalid)" 
                 style="margin-top: 5px;">
                   <span *ngIf="UserName.errors.required">User Name is Required</span>
@@ -16,7 +22,8 @@
                     </span>                   
                 </div>
           </div>
-          
+        </mat-card>
+      <mat-card>
           <div class="form-group">
             <label for="name">Password</label>
             <input type="password" class="form-control"  formControlName="password" data-toggle="tooltip" 
@@ -29,7 +36,7 @@
                   </span>                   
               </div>
         </div>
-
+      </mat-card><mat-card>
           <div class="form-group">
             <label for="name">First Name</label>
             <input type="text" class="form-control"  formControlName="firstName" data-toggle="tooltip" 
@@ -42,9 +49,9 @@
                   </span>                   
               </div>
         </div>
-
+      </mat-card><mat-card>
         <div class="form-group">
-          <label for="name">last Name</label>
+          <label for="name">Last Name</label>
           <input type="text" class="form-control"  formControlName="lastName" data-toggle="tooltip" 
              data-placement="right" title="Enter last Name" >
           <div class="alert alert-danger" *ngIf = "(UserLastName.touched) && (UserLastName.invalid)" 
@@ -55,7 +62,7 @@
                 </span>                   
             </div>
       </div>
-  
+    </mat-card><mat-card>
           <div class="form-group">
               <label for="name">Student Email</label>
               <input type="text" class="form-control" formControlName="email" 
@@ -68,7 +75,7 @@
                     </span>                   
                 </div>
           </div>
-  
+        </mat-card><mat-card>
           <div class="form-group">
             <label for="name">Mobile</label>
             <input type="text" class="form-control" formControlName="mobile" 
@@ -81,8 +88,9 @@
                   </span>                   
               </div>
         </div>
-  
+      </mat-card><mat-card>
           <button type="submit" class="btn btn-success">Submit</button>
+        </mat-card>
       </form>
   </div>
   </div>
@@ -98,16 +106,3 @@
   </div>
   <div class="col-sm-4"></div>
 </div>
-
-<div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4">
-      <div [hidden]="!errorFlag">
-         <h4>Username/Email already exists!</h4>
-         <button (click)="addStudentForm()" class='btn btn-primary'>Refill form.</button>
-      </div>      
-  </div>
-  <div class="col-sm-4"></div>
-</div>
-
-

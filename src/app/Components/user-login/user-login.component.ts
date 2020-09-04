@@ -36,12 +36,13 @@ export class UserLoginComponent implements OnInit {
     this.save();
   }
 
+  
+
   save() {
     this.studentservice.loginUser(this.loginId)
       .subscribe(data => {
         console.log(data)
         this.submitted = true;
-        //console.log("bearer "+data.jwt);
         myGlobals.loggingin();
         this.router.navigate(['/success']);
       }, error => {

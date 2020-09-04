@@ -5,10 +5,16 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+
 
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,14 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    NoopAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
