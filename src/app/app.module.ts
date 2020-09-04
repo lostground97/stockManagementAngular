@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { AddUserComponent } from './Components/add-user/add-user.component';
@@ -33,6 +34,7 @@ import { from } from 'rxjs';
     NoopAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatToolbarModule
   ],
   exports: [
     MatButtonModule,
