@@ -13,7 +13,7 @@
               <label for="name">User Name</label>
               <input type="text" class="form-control"  formControlName="username" data-toggle="tooltip" 
                  data-placement="right" title="Enter User Name" >
-                <div id="username-error" [hidden]="!errorFlag">Username already exists</div>
+                
               <div class="alert alert-danger" *ngIf = "(UserName.touched) && (UserName.invalid)" 
                 style="margin-top: 5px;">
                   <span *ngIf="UserName.errors.required">User Name is Required</span>
@@ -89,6 +89,7 @@
               </div>
         </div>
       </mat-card><mat-card>
+        <p id="add-user-error"></p>
           <button type="submit" class="btn btn-success">Submit</button>
         </mat-card>
       </form>

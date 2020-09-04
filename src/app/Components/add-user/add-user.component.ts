@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private studentservice:UserService, private router: Router) { }
+  constructor(private userService:UserService, private router: Router) { }
 
-  student : User=new User();
+  user : User=new User();
   submitted = false;
   errorFlag = false;
+  respone_message;
 
   ngOnInit() {
     this.submitted=false;
@@ -32,20 +33,20 @@ export class AddUserComponent implements OnInit {
   });
 
   saveUser(saveUser){
-    this.student=new User();   
-    this.student.username=this.UserName.value;
-    this.student.firstName=this.UserFirstName.value;
-    this.student.lastName=this.UserLastName.value;
-    this.student.password=this.UserPassword.value;
-    this.student.email=this.UserEmail.value;
-    this.student.mobile=this.UserMobile.value;
+    this.user=new User();   
+    this.user.username=this.UserName.value;
+    this.user.firstName=this.UserFirstName.value;
+    this.user.lastName=this.UserLastName.value;
+    this.user.password=this.UserPassword.value;
+    this.user.email=this.UserEmail.value;
+    this.user.mobile=this.UserMobile.value;
     this.save();
   }
 
   
 
   save() {
-    this.studentservice.createStudent(this.student)
+    this.userService.createStudent(this.user)
       .subscribe(data => {
         console.log(data)
         this.submitted = true;
@@ -53,10 +54,13 @@ export class AddUserComponent implements OnInit {
       }, error => {
       console.log(error)
         this.errorFlag = true;
+        this.respone_message = error;
+        console.log(this.respone_message.error);
+        document.getElementById("add-user-error").innerHTML = " " +this.respone_message.error;
     }
       
       );
-    this.student = new User();
+    this.user = new User();
   }
 
   get UserName(){

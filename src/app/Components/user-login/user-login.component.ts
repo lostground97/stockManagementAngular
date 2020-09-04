@@ -12,7 +12,7 @@ import * as myGlobals from '../../global';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private studentservice:UserService, private router: Router) { }
+  constructor(private userService:UserService, private router: Router) { }
 
   loginId : loginUser=new loginUser();
   submitted = false;
@@ -39,7 +39,7 @@ export class UserLoginComponent implements OnInit {
   
 
   save() {
-    this.studentservice.loginUser(this.loginId)
+    this.userService.loginUser(this.loginId)
       .subscribe(data => {
         console.log(data)
         this.submitted = true;
