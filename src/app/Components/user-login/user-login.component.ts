@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from 'src/app/student.service';
+import { UserService } from 'src/app/user.service';
 import { loginUser } from 'src/app/loginUser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router , Routes} from '@angular/router';
@@ -12,7 +12,7 @@ import * as myGlobals from '../../global';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private studentservice:StudentService, private router: Router) { }
+  constructor(private studentservice:UserService, private router: Router) { }
 
   loginId : loginUser=new loginUser();
   submitted = false;

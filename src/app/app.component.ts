@@ -1,5 +1,5 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import {StudentService} from './student.service'
+import {UserService} from './user.service'
 import * as myGlobals from './global';
 import { logging } from 'protractor';
 import { Router , Routes} from '@angular/router';

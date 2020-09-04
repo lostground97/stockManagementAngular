@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../../student.service';
+import { UserService } from '../../user.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 import { User } from '../../user';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private studentservice:StudentService, private router: Router) { }
+  constructor(private studentservice:UserService, private router: Router) { }
 
   student : User=new User();
   submitted = false;

@@ -8,7 +8,7 @@ import * as myGlobals from './global';
   providedIn: 'root'
 })
 
-export class StudentService {
+export class UserService {
   public isLoggedIn = false;
   private baseUrl = 'http://localhost:8081/';
   headerJwt;
