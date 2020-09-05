@@ -25,6 +25,7 @@ import { CompanyDetailsComponent } from './Components/company-details/company-de
 import { AddCompanyComponent } from './Components/add-company/add-company.component';
 import { ViewCompanyComponent } from './Components/viewcompany/viewcompany.component';
 import { ViewIpoComponent } from './Components/viewipo/viewipo.component';
+import {UploadExcelFileComponent} from './Components/upload-excel-file/upload-excel-file.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ViewIpoComponent } from './Components/viewipo/viewipo.component';
     CompanyDetailsComponent,
     CompanyListComponent,
     ViewCompanyComponent,
-    ViewIpoComponent
+    ViewIpoComponent,
+    UploadExcelFileComponent
   ],
   imports: [
     BrowserModule,

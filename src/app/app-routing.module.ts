@@ -12,6 +12,7 @@ import { CompanyDetailsComponent } from './Components/company-details/company-de
 import { AddCompanyComponent } from './Components/add-company/add-company.component';
 import { ViewCompanyComponent } from './Components/viewcompany/viewcompany.component';
 import { ViewIpoComponent } from './Components/viewipo/viewipo.component';
+import {UploadExcelFileComponent} from './Components/upload-excel-file/upload-excel-file.component';
 const routes: Routes = [
   { path: '', redirectTo: '/user-login', pathMatch: 'full' },
   { path: 'add-user', component: AddUserComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'success/editcompany/:id', component: CompanyDetailsComponent },
   { path: 'success/addcompany', component: AddCompanyComponent },
   { path: 'success/viewcompany', component: ViewCompanyComponent},
-  { path: 'success/viewipo', component: ViewIpoComponent}
+  { path: 'success/viewipo', component: ViewIpoComponent},
+  { path: 'success/uploadexcel', component: UploadExcelFileComponent}
 ];
 
 @NgModule({
