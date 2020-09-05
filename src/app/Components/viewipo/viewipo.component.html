@@ -1,0 +1,40 @@
+
+<div class="container text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-ipo">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" 
+        placeholder="Search IPO ID / company ID">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>IPO Id</th>
+          <th>Company ID</th>
+          <th>Open Date</th>
+          <th>Number of Shares</th>
+          <th>Price Per Share</th>
+          
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ipo of ipos | filter:searchText">
+          <td>{{ipo.ipo_id}}</td>
+          <td>{{ipo.company_id}}</td> 
+          <td>{{ipo.open_date}}</td> 
+          <td>{{ipo.num_of_shares}}</td> 
+          <td>{{ipo.price_per_share}}</td> 
+         
+          
+               
+        </tr>
+        </tbody>
+      </table>
+    
+    </div>
+  </div>
+  
+
