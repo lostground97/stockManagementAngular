@@ -61,14 +61,19 @@ export class CompanyListComponent implements OnInit {
   }
 
   deleteCompany() {
+    if(confirm("Are you sure to delete ?"))
+    {
     this.companyService.delete(this.currentCompany.company_id)
       .subscribe(
         response => {
           console.log(response);
           this.router.navigate(['/success/company']);
+          window.location.reload(); 
         },
         error => {
           console.log(error);
+          window.alert("Error!");
         });
+    }
   }
 }

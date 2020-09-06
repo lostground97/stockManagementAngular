@@ -50,24 +50,15 @@ export class CompanyDetailsComponent implements OnInit {
         data => {
          // this.currentcompany = data;
           console.log(data);
-          this.listdata = [];
-          for(let key in data){
-              this.listdata.push(data[key]);
+          this.currentcompany.company_id=data["company_id"];
+          this.currentcompany.board_of_directors=data["board_of_directors"];
+          this.currentcompany.ceo=data["ceo"];
+          this.currentcompany.company_name=data["company_name"];
+          this.currentcompany.turnover=data["turnover"];
+          this.currentcompany.write_up=data["write_up"];
+          this.currentcompany.sector_id=data["sector_id"];
 
-          }
           
-            this.currentcompany.company_id=this.listdata[0];
-            this.currentcompany.board_of_directors=this.listdata[1];
-            this.currentcompany.ceo=this.listdata[2];
-            this.currentcompany.company_name=this.listdata[3];
-            this.currentcompany.turnover=this.listdata[4];
-            this.currentcompany.write_up=this.listdata[5];
-            this.currentcompany.sector_id=this.listdata[6];
-            
-            
-          
-          console.log(this.listdata);
-
         },
         error => {
           console.log(error);
@@ -92,6 +83,8 @@ export class CompanyDetailsComponent implements OnInit {
         response => {
           console.log(response);
           this.message = 'The Company was updated successfully!';
+          window.alert(this.message);
+          this.router.navigate(['/success/company']);
         },
         error => {
           console.log(error);
