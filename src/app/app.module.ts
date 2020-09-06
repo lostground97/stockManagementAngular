@@ -16,7 +16,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { from } from 'rxjs';
-import { CompareCompanyComponent } from './compare-company/compare-company.component';
+import { CompareCompanyComponent } from './Components/compare-company/compare-company.component';
 import { IpoListComponent } from './Components/ipo-list/ipo-list.component';
 import { IpoDetailsComponent } from './Components/ipo-details/ipo-details.component';
 import { AddIpoComponent } from './Components/add-ipo/add-ipo.component';

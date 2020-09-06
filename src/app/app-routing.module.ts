@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import { CompareCompanyComponent } from './compare-company/compare-company.component';
+import { CompareCompanyComponent } from './Components/compare-company/compare-company.component';
 import { IpoListComponent } from './Components/ipo-list/ipo-list.component';
 import { IpoDetailsComponent } from './Components/ipo-details/ipo-details.component';
 import { AddIpoComponent } from './Components/add-ipo/add-ipo.component';
