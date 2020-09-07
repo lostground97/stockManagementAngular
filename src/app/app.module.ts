@@ -10,6 +10,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { ChartsModule } from "ng2-charts";
 
+import { CustomMaterialModule } from './core/material.module';
 import { AddUserComponent } from "./Components/add-user/add-user.component";
 import { UserLoginComponent } from "./Components/user-login/user-login.component";
 import { DashboardComponent } from "./Components/dashboard/dashboard.component";
@@ -29,6 +30,7 @@ import { UploadExcelFileComponent } from "./Components/upload-excel-file/upload-
 import { ExchangeComponent } from "./Components/exchange/exchange.component";
 import { ExchangeDetailsComponent } from "./Components/exchange-details/exchange-details.component";
 import { AddStockExchangeComponent } from "./Components/add-stock-exchange/add-stock-exchange.component";
+import { SectorComponent } from "./Components/sector/sector.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
@@ -50,8 +52,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ExchangeComponent,
     ExchangeDetailsComponent,
     AddStockExchangeComponent,
+    SectorComponent
   ],
   imports: [
+    CustomMaterialModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -65,6 +69,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ChartsModule,
     Ng2SearchPipeModule,
     NgbModule,
+    CustomMaterialModule
   ],
   exports: [MatButtonModule, MatCardModule],
   providers: [],

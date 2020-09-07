@@ -16,6 +16,8 @@ import { UploadExcelFileComponent } from "./Components/upload-excel-file/upload-
 import { ExchangeComponent } from "./Components/exchange/exchange.component";
 import { ExchangeDetailsComponent } from "./Components/exchange-details/exchange-details.component";
 import { AddStockExchangeComponent } from "./Components/add-stock-exchange/add-stock-exchange.component";
+import { SectorComponent } from "./Components/sector/sector.component";
+
 const routes: Routes = [
   { path: "", redirectTo: "/user-login", pathMatch: "full" },
   { path: "add-user", component: AddUserComponent },
@@ -31,10 +33,10 @@ const routes: Routes = [
   { path: "success/viewcompany", component: ViewCompanyComponent },
   { path: "success/viewipo", component: ViewIpoComponent },
   { path: "success/uploadexcel", component: UploadExcelFileComponent },
-
   { path: "success/exchange", component: ExchangeComponent },
   { path: "success/details/:id", component: ExchangeDetailsComponent },
   { path: "success/addstock", component: AddStockExchangeComponent },
+  { path: "success/sector", component: SectorComponent }
 ];
 
 @NgModule({
