@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, range } from 'rxjs';
+import Chart from 'chart.js';
 
-import { CompanyPriceDetails } from '../../models/company-price-data';
 import { Company } from '../../models/company-data';
 import { Sector } from '../../models/sector-data';
-import { SectorCompare } from '../../models/sector-compare-data';
+import { ChartDetails } from './../../models/charts';
+import { SectorCompare, CompanyPriceDetails } from '../../models/sector-compare-data';
 import { SectorService } from '../../services/sector.service';
+import { ChartsService } from './../../services/charts.service';
+
 import Utils from '../../helpers/utils';
 
 @Component({
@@ -22,9 +25,15 @@ export class SectorComponent implements OnInit {
   compareSector2;
   startDate: Date = new Date();
   endDate;
+  startDate2;
+  endDate2;
   showGraph: boolean = false;
+  showPie: boolean = true;
   compareSectorData1: SectorCompare = new SectorCompare();
   compareSectorData2: SectorCompare = new SectorCompare();
+  compareSectorData: SectorCompare = new SectorCompare();
+  sectorNameForPie;
+  chartType;
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
@@ -50,11 +59,13 @@ export class SectorComponent implements OnInit {
   onStartDateChange(event) {
     var date = new Date(event.value);
     this.startDate = date;
+    this.startDate2 = date;
   }
 
   onEndDateChange(event) {
     var date = new Date(event.value);
     this.endDate = date;
+    this.endDate2 = date;
   }
 
   selectSector(id) {
@@ -91,19 +102,22 @@ export class SectorComponent implements OnInit {
 
       var avgChart = {
         data: [data.highestAvg.stockPrice],
-        label: "Sector 1 -" + data.highestAvg.companyName
+        label: "Sector 1 -" + data.highestAvg.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.avgChartData.push(avgChart);
 
       var highChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 1 - " + data.highestHigh.companyName
+        label: "Sector 1 - " + data.highestHigh.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.highChartData.push(highChart);
 
       var lowChart = {
         data: [data.lowestLow.stockPrice],
-        label: "Sector 1 - " + data.lowestLow.companyName
+        label: "Sector 1 - " + data.lowestLow.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.lowChartData.push(lowChart);
       this.showGraph = true;
@@ -119,26 +133,99 @@ export class SectorComponent implements OnInit {
       this.compareSectorData2.lowestLow = data.lowestLow;
       var avgChart = {
         data: [data.highestAvg.stockPrice],
-        label: "Sector 2 - " + data.highestAvg.companyName
+        label: "Sector 2 - " + data.highestAvg.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.avgChartData.push(avgChart);
 
       var highChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 2 - " + data.highestHigh.companyName
+        label: "Sector 2 - " + data.highestHigh.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.highChartData.push(highChart);
 
       var lowChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 2 - " + data.highestHigh.companyName
+        label: "Sector 2 - " + data.highestHigh.companyName,
+        backgroundColor: this.backgroundColor()
       }
       this.lowChartData.push(lowChart);
       this.showGraph = true;
     });
   }
 
-  ngOnInit(): void {
+  myChart1;myChart2;myChart3;
+  chartDetails: ChartDetails;
+  chartsService: ChartsService = new ChartsService();
+
+  handleCompareCompanyBySector(){
+    this.sectorService.fetchSectorWithPrices(this.sectorNameForPie,Utils.convertDate(this.startDate2), Utils.convertDate(this.endDate2)).subscribe(data => {
+      this.compareSectorData.companyPriceDetails = data.companies as CompanyPriceDetails[];
+      console.log(this.compareSectorData.companyPriceDetails);
+    if(this.myChart1)
+      {        this.myChart1.destroy();this.myChart2.destroy();this.myChart3.destroy();}
+    this.chartDetails = this.chartsService.showChartService(this.compareSectorData.companyPriceDetails,this.chartType);
+    console.log(this.chartDetails);
+    var canvas = <HTMLCanvasElement> document.getElementById('compare-company1');
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+      this.myChart1 = new Chart(ctx, {
+        type: this.chartDetails.chartType,
+        data: {
+            labels: this.chartDetails.chartLabels,
+            datasets: [{
+              label : 'Stock Average Price Comparison',
+                backgroundColor: this.chartDetails.palette,
+                data: this.chartDetails.avgPrice
+            }]
+        },
+        options: {}
+    });
+    }
+    var canvas = <HTMLCanvasElement> document.getElementById('compare-company2');
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+      this.myChart2 = new Chart(ctx, {
+        type: this.chartDetails.chartType,
+        data: {
+            labels: this.chartDetails.chartLabels,
+            datasets: [{
+              label : 'Stock Maximum Price Comparison',
+                backgroundColor: this.chartDetails.palette,
+                data: this.chartDetails.maxPrice
+            }]
+        },
+        options: {}
+    });
+    }
+
+    var canvas = <HTMLCanvasElement> document.getElementById('compare-company3');
+    if (canvas.getContext) {
+      var ctx = canvas.getContext('2d');
+      this.myChart3 = new Chart(ctx, {
+        type: this.chartDetails.chartType,
+        data: {
+            labels: this.chartDetails.chartLabels,
+            datasets: [{
+              label : 'Stock Minimum Price Comparison',
+                backgroundColor: this.chartDetails.palette,
+                data: this.chartDetails.minPrice
+            }]
+        },
+        options: {}
+      });
+    }
+  });
   }
 
+  backgroundColor(){
+    return 'rgb('
+       + Math.round(Math.random() *255) + ','
+       + Math.round(Math.random() *255) + ','
+       + Math.round(Math.random() *255)
+       + ')';
+  }
+  ngOnInit(): void {
+  }
 }

@@ -1,6 +1,8 @@
 export class ChartDetails{
     public chartType="";
     public chartLabels = [];
-    public chartData = [];
+    public avgPrice = [];
+    public minPrice = [];
+    public maxPrice = [];
     public palette = [];
 }

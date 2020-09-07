@@ -166,6 +166,79 @@
           </div>
         </div>
       </mat-tab>
+      <mat-tab label = "Compare Companies By Sector">
+        <div class = 'compare-container'>
+          <div class = 'compare-select'>
+            <h2 class = "title-text">Select Comparison Parameters</h2>
+            <div class = 'compare-form'>
+              <p>Select Sector Name</p>
+              <div class="sector-form">
+                <mat-form-field class = 'full-width' appearance="fill">
+                  <mat-label>Sector Name</mat-label>
+                  <mat-select [(value)]="sectorNameForPie">
+                    <mat-option
+                      *ngFor="let sector of sectors"
+                      value= "{{sector.sectorId}}"
+                    >
+                      {{sector.sectorName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <p>Select Date Range:</p>
+              <div class="sector-form">
+                <mat-form-field class = 'full-width' appearance="fill">
+                  <mat-label>Start date</mat-label>
+                  <input matInput [matDatepicker]="startDate2" (dateChange)="onStartDateChange($event)">
+                  <mat-datepicker-toggle matSuffix [for]="startDate2"></mat-datepicker-toggle>
+                  <mat-datepicker #startDate2></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class = 'full-width' appearance="fill">
+                  <mat-label>End date</mat-label>
+                  <input matInput [matDatepicker]="endDate2" (dateChange)="onEndDateChange($event)">
+                  <mat-datepicker-toggle matSuffix [for]="endDate2"></mat-datepicker-toggle>
+                  <mat-datepicker #endDate2></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class = 'full-width' appearance="fill">
+                  <mat-label>Chart Type</mat-label>
+                  <mat-select [(value)]="chartType">
+                    <mat-option value = "bar" >Bar</mat-option>
+                    <mat-option value = "pie">Pie</mat-option>
+                    <mat-option value ="doughnut">Doughnut</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class = 'full-width'>
+                <button
+                  mat-raised-button
+                  class = 'button full-width'
+                  (click) = "handleCompareCompanyBySector()"
+                >
+                   Compare
+                </button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf = 'showPie' class = 'compare-charts'>
+            <h2 class = "title-text">Comparison Charts</h2>
+            <div class="sector-name">
+              <div class="compare-graph">
+                <p>Stock Average Price Comparison</p>
+                <canvas id = 'compare-company1'></canvas>
+              </div>
+              <div class="compare-graph">
+                <p>Stock Maximum Price Comparison</p>
+                <canvas id = 'compare-company2'></canvas>
+              </div>
+            </div>
+            <div class="compare-graph">
+              <p>Stock Minimum Price Comparison</p>
+              <canvas id = 'compare-company3'></canvas>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
     </mat-tab-group>
   </mat-card>
 </div>
