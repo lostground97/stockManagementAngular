@@ -21,7 +21,7 @@ export class UploadExcelFileComponent implements OnInit {
 
   showMsgBoolean: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     if(myGlobals.getStatus()==false){
       this.router.navigate(['/']);
     }
