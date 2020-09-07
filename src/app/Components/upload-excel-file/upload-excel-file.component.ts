@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as myGlobals from '../../global';
+import { Router , Routes} from '@angular/router';
+
 
 
 
@@ -18,7 +21,11 @@ export class UploadExcelFileComponent implements OnInit {
 
   showMsgBoolean: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    if(myGlobals.getStatus()==false){
+      this.router.navigate(['/']);
+    }
+   }
 
   ngOnInit(): void {
   }
