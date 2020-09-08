@@ -48,7 +48,7 @@ export class UploadExcelFileComponent implements OnInit {
   onUpload(){
     const fd = new FormData();
     fd.append('excel',this.selectedFile, this.selectedFile.name);
-    this.http.post("http://localhost:8080/api/excel/upload", fd)
+    this.http.post("http://localhost:8082/api/excel/upload", fd)
         .subscribe(res=>{
          if (res) {
            

@@ -10,7 +10,7 @@ import * as myGlobals from './global';
 
 export class UserService {
   public isLoggedIn = false;
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = 'http://localhost:8080/';
   headerJwt;
   constructor(private http:HttpClient) { }
 
