@@ -30,6 +30,10 @@ export class UserService {
     return this.http.post(`${this.baseUrl}`+'login', loginId);
   }
 
+  loginAdmin(loginId: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`+'adminlogin', loginId);
+  }
+
   login(): boolean{
     return true;
   }

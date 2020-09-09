@@ -59,18 +59,24 @@ export class IpoListComponent implements OnInit {
         },
         error => {
           console.log(error);
+          
         });
   }
 
   deleteIpo(ipo_id) {
+    if(confirm("Are you sure to delete ?"))
+    {
     this.ipoService.delete(ipo_id)
       .subscribe(
         response => {
           console.log(response);
           this.router.navigate(['/success/ipo']);
+          window.location.reload(); 
         },
         error => {
           console.log(error);
+          window.alert("Error!");
         });
+    }
   }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as myGlobals from '../../global';
+import { Router , Routes} from '@angular/router';
+
 
 
 
@@ -18,7 +21,11 @@ export class UploadExcelFileComponent implements OnInit {
 
   showMsgBoolean: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
+    if(myGlobals.getStatus()==false){
+      this.router.navigate(['/']);
+    }
+   }
 
   ngOnInit(): void {
   }
@@ -41,7 +48,7 @@ export class UploadExcelFileComponent implements OnInit {
   onUpload(){
     const fd = new FormData();
     fd.append('excel',this.selectedFile, this.selectedFile.name);
-    this.http.post("http://localhost:8080/api/excel/upload", fd)
+    this.http.post("http://localhost:8082/api/excel/upload", fd)
         .subscribe(res=>{
          if (res) {
            

@@ -95,6 +95,8 @@ export class IpoDetailsComponent implements OnInit {
           console.log(response);
           this.isupdated=true;
           this.message = 'The IPO was updated successfully!';
+          window.alert(this.message);
+          this.router.navigate(['/success/ipo']);
         },
         error => {
           console.log(error);
