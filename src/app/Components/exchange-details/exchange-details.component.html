@@ -211,41 +211,32 @@
   <!-- END PRIMARY CONTENT HEADING -->
   <div class="row">
     <div class="col-md-8">
-      <div class="project-section general-info">
-        <table class="table">
-          <tbody>
+      <div class="table-title">
+        <table class="table-fill">
+          <tbody class="table-hover">
             <tr>
-              <td>Brief</td>
-              <td>{{ item.brief }}</td>
+              <td class="text-left">Brief</td>
+              <td class="text-left">{{ item.brief }}</td>
             </tr>
             <tr>
-              <td>Address:</td>
-              <td>{{ item.address }}</td>
+              <td class="text-left">Address:</td>
+              <td class="text-left">{{ item.address }}</td>
             </tr>
             <tr>
-              <td>Remarks:</td>
-              <td>{{ item.remarks }}</td>
+              <td class="text-left">Remarks:</td>
+              <td class="text-left">{{ item.remarks }}</td>
+            </tr>
+            <tr>
+              <th scope="col" class="text-left">Company Name</th>
+              <th scope="col" class="text-left">Company Id</th>
+            </tr>
+            <tr *ngFor="let company of item.company">
+              <td class="text-left">{{ company.companyName }}</td>
+              <td class="text-left">{{ company.companyId }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="row">
-          <div class="col-sm-9">
-            <table class="table">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">Company Name</th>
-                  <th scope="col">Company Id</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let company of item.company">
-                  <td>{{ company.companyName }}</td>
-                  <td>{{ company.companyId }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <br />
       </div>
       <div class="project-section activity"></div>
     </div>
