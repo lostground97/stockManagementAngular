@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Validators, FormGroup, FormControl} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import * as myGlobals from './../../global';
 
 @Component({
   selector: 'app-compare-company',
@@ -10,7 +12,11 @@ import { Validators, FormGroup, FormControl} from '@angular/forms';
 
 export class CompareCompanyComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { 
+    if(myGlobals.getStatus()==false){
+      this.router.navigate(['/']);
+    }
+  }
 
   //plot
   public lineChartOptions = {
