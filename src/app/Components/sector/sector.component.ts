@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, range } from 'rxjs';
 import Chart from 'chart.js';
 
+import { ActivatedRoute, Router } from '@angular/router';
+import * as myGlobals from './../../global';
 import { Company } from '../../models/company-data';
 import { Sector } from '../../models/sector-data';
 import { ChartDetails } from './../../models/charts';
@@ -50,7 +52,12 @@ export class SectorComponent implements OnInit {
   public highChartData = [];
   public lowChartData = [];
 
-  constructor(private sectorService: SectorService ) {
+  constructor(private sectorService: SectorService, private router: Router ) {
+
+    if(myGlobals.getStatus()==false){
+      this.router.navigate(['/']);
+    }
+
     sectorService.fetchSectors().subscribe(data => {
       this.sectors = data as Sector[];
     });
