@@ -57,7 +57,7 @@ export class UploadExcelFileComponent implements OnInit {
       this.http.post("http://localhost:8082/api/excel/upload", fd)
           .subscribe(res=>{
           if (res) {
-            
+              console.log(res);
               localStorage.setItem('currentData', JSON.stringify(res));
           }
           if(localStorage.getItem('currentData')) {
